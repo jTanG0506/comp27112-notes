@@ -18,3 +18,14 @@ OpenGL stands for **Open Graphics Library** is a cross-platform and language-ind
 | ---- | ---- |
 | provides huge flexibility | for beginners, there is a significant start-up cost |
 | it's the state-of-the-art, cutting edge |   |
+
+### GLU and GLUT
+OpenGL itself, only supports low-level rendering and for convenience, there are two supports libraries that *sit on top of* OpenGL: **GLU** and **GLUT**.
+
+#### GLU
+The **GL Utility Library** provides functions which *wrap up* lower level OpenGL graphics by providing helper functions to draw curves, surfaces, cyclinders, discs, quadrics, etc. It also provides utility functions for viewing, textures and tessellation.
+
+#### GLUT
+The **GL Utility Toolkit** provides functions to deal with interaction with the user, such as handling mouse and keyboard input and providing functions to create a simple menu system. GLUT also provides a number of functions for generating easily recognisable 3D geometric objects, such as spheres, tori, cones, cubes, tetrahedrons and even teapots!
+
+:warning: **OpenGL**, **GLUT** and **GLU** are together loosely called **OpenGL**
