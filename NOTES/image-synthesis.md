@@ -7,6 +7,13 @@ A **raster graphic** uses a 2D array of pixels to represent the image. Images mu
 ### What is OpenGL?
 OpenGL stands for **Open Graphics Library** is a cross-platform and language-independent API for doing 2D and 3D computer graphics. It is the most widely used 2D and 3D graphics API, with common uses in industry, engineering, CAD, CGI, research, education, etc.
 
+It's main features include 3D graphics (points, lines, polygons, ...), coordinate transformations, viewing camera, hidden surface removal, lighting and shading, texturing, pixel (image) operations and many more.
+
+#### Double buffering
+**Double buffering** is a technique for drawing graphics that show no (or less) stutter, tearing and other artifacts. As the name suggests, this is done by having two buffers, referred to as the **back buffer** and the **front buffer**. The idea is that the back buffer is only ever written to by the renderer and the front buffer is only ever read by the DAC (Digital to Analog Converter). The renderer writes new frames into the back buffer and then requests that the back and front buffers are swapped.
+
+The swapping is done whilst the DAC is performing its vertical retrace, which is when it is has finished a complete sweep of the buffer and is resetting to the beginning again and this period is known as the **vertical retrace time**.
+
 #### Fixed pipeline
 | :white_check_mark: Pros | :negative_squared_cross_mark: Cons |
 | ---- | ---- |
