@@ -169,3 +169,122 @@ The **composite transformation** is {% math %}M_3 \cdot M_2 \cdot M_1{% endmath 
 - **Modelling transformations** are used to **instance** multiple copies of an object in a scene, for example, translate and rotate the wheels onto a car body
 - The entire car may then have further transformations applied, like translation to simulate its movement
 - A global **world coordinate system** is used to specify the position of objects in the entire scene
+
+#### Vector addition
+To add two vectors of the same order, simply add them component wise, as follows. Vector addition can be used to move a point through space in a known direction.
+{% math %}
+\begin{bmatrix}
+    x_1 \\
+    y_1 \\
+    z_1 \\
+    1
+\end{bmatrix}
++
+\begin{bmatrix}
+    x_2 \\
+    y_2 \\
+    z_2 \\
+    1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    x_1 + x_2 \\
+    y_1 + y_2 \\
+    z_1 + z_2 \\
+    1
+\end{bmatrix}
+{% endmath %}
+
+#### Vector subtraction
+To subtract two vectors of the same order, simply subtract them component wise, as follows. Vector subtraction results in the 'line' representation between two points.
+{% math %}
+\begin{bmatrix}
+    x_1 \\
+    y_1 \\
+    z_1 \\
+    1
+\end{bmatrix}
+-
+\begin{bmatrix}
+    x_2 \\
+    y_2 \\
+    z_2 \\
+    1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    x_1 - x_2 \\
+    y_1 - y_2 \\
+    z_1 - z_2 \\
+    1
+\end{bmatrix}
+{% endmath %}
+
+#### Multiplication by a scalar
+Multiply the individual components by a scalar {% math %}C{% endmath %}. Multiplying by a scalar moves a point along a vector by a given amount.
+{% math %}
+\begin{bmatrix}
+    x_1 \\
+    y_1 \\
+    z_1 \\
+    1
+\end{bmatrix}
+\times
+C
+=
+\begin{bmatrix}
+    x_1 \times C \\
+    y_1 \times C \\
+    z_1 \times C \\
+    1
+\end{bmatrix}
+{% endmath %}
+
+#### Vector normalization
+**Normalization** is the process of taking a non-zero vector {% math %}V{% endmath %} and converting it into a vector {% math %}\hat{V}{% endmath %} **of length 1**, which points in the same direction. To do this, simply calculate the length {% math %}L{% endmath %} of {% math %}V{% endmath %} and divide its {% math %}x, y{% endmath %} and {% math %}z{% endmath %} components by this value. This is an essential operation in rendering.
+
+#### Dot product (inner product)
+The **dot product** is the scalar product of the individual components. For normalized vectors, this quantity is the cosine of the angle between them.
+
+{% math %}
+\begin{bmatrix}
+    x_1 \\
+    y_1 \\
+    z_1 \\
+    1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+    x_2 \\
+    y_2 \\
+    z_2 \\
+    1
+\end{bmatrix}
+= (x_1 \times x_2) + (y_1 \times y_2) + (z_1 \times z_2)
+{% endmath %}
+
+#### Cross product (outer product)
+The **cross product** is a vector, defined as follows:
+
+{% math %}
+\begin{bmatrix}
+    x_1 \\
+    y_1 \\
+    z_1 \\
+    1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+    x_2 \\
+    y_2 \\
+    z_2 \\
+    1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    y_1 \times z_2 - z_1 \times y_2 \\
+    z_1 \times x_2 - x_1 \times z_2 \\
+    x_1 \times y_2 - y_1 \times x_2 \\
+    1
+\end{bmatrix}
+{% endmath %}
