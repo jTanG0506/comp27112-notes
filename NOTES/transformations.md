@@ -158,3 +158,14 @@ Say we wanted to scale an object by {% math %}(sx, sy, sz){% endmath %} about an
 - Step 3: Construct the translation {% math %}M_3{% endmath %} which shifts the object back by {% math %}(px, py, pz){% endmath %}
 
 The **composite transformation** is {% math %}M_3 \cdot M_2 \cdot M_1{% endmath %}. Notice that {% math %}M_1{% endmath %} is applied first, then {% math %}M_2{% endmath %}, then {% math %}M_3{% endmath %}.
+
+#### Invertible matrices
+- Two matrices {% math %}A{% endmath %} and {% math %}B{% endmath %} are said to be inverses of each other if {% math %}A \times B = I{% endmath %}, where {% math %}I{% endmath %} is the identity matrix
+- For a matrix {% math %}M{% endmath %}, we write its inverse as {% math %}M^{-1}{% endmath %}, so {% math %}M \times M^{-1} = I{% endmath %}
+- We say a matrix {% math %}M{% endmath %} is **singular** if it has no inverse, in other words, it cannot be undone. For example, if you project a 3D object onto the x-y plane, there is no way to revert this, as we have thrown away information
+
+#### Model and World coordinate systems
+- Often an object is defined in a **local modelling coordinate system**, for example, modelling a car wheel with an origin at the wheel centre
+- **Modelling transformations** are used to **instance** multiple copies of an object in a scene, for example, translate and rotate the wheels onto a car body
+- The entire car may then have further transformations applied, like translation to simulate its movement
+- A global **world coordinate system** is used to specify the position of objects in the entire scene
