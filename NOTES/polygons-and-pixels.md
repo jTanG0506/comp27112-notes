@@ -14,3 +14,19 @@ Orientation is an essential property used extensively in lighting calculations, 
 - Step 2: Invert the direction of the first so they now emanate from their shared vertex
 - Step 3: Their cross product gives the surface normal {% math %}N = E_2 \times -E_1{% endmath %}
 - Step 4: Normalise {% math %}N{% endmath %}
+
+#### Polygon soup
+One way to represent a scene using polygons is to have a huge list of individual polygons, to colour and draw in order, requiring individual manipulation. This is known as a **polygon soup** and has a number of undesirable properties, such as:
+- Waste of storage space as most models contain surfaces, not individual polygons, so we could share vertices rather than replicate them per polygon
+- Loss of semantics: does a polygon belong to a cow? or a table?
+- Leads to *brute force* rendering which makes interaction with the model complex
+
+#### Meshes
+**Meshes** are a linked group of polygons, which can be used to represent surfaces. They retain semantics, reduce storage by sharing vertices and edges, help with interaction and help with structuring the model so we can manipulate it more easily.
+
+- **Triangle strips** are a collection of linked triangles, {% math %}N{% endmath %} linked triangles can be defined using {% math %}N + 2{% endmath %} vertices - compared with {% math %}3N{% endmath %} vertices if each triangle was defined separately
+- **Triangle fans** are a collection of linked triangle that share a same vertex, which again be defined using {% math %}N + 2{% endmath %} vertices instead of {% math %}3N{% endmath %}
+- **Quadrilateral strips** are a collection of links quadrilaterals, {% math %}N{% endmath %} quadrilaterals can be defined using {% math %}2N + 2{% endmath %} vertices, compared with {% math %}4N{% endmath %} separate vertices
+- **Quadrilateral meshes** are a collection of linked quadrilaterals, which is commonly used in terrain modelling and for approximating curved surfaces. {% math %}N \times M{% endmath %} quadrilaterals can be defined using {% math %}(N + 1) \times (M + 1){% endmath %} vertices, compared with {% math %}4MN{% endmath %} separate vertices
+
+:heavy_exclamation_mark: Quadrilaterals must be **tessellated** into triangles during rendering
