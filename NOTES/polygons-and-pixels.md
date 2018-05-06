@@ -45,3 +45,25 @@ One approach would be to scan-convert each of the edges in turn and process each
 
 ##### Sweep-line algorithm
 This algorithm steps down a pair of edges, starting in this example at {% math %}(x_1, y_1){% endmath %}, then goes down scanline by scanline, finding the start and end of the part of the scanline inside the triangle. This algorithm is efficient because we only need to coompute the gradients of the edges {% math %}px{% endmath %} and {% math %}qx{% endmath %} once, at the beginning. However, it is a floating point algorithm, so we do need keep rounding to the pixel grid.
+
+#### Hidden surface removal
+When modelling a 3D world from a particular viewpoint, there will be some parts of the world we can see, and some parts we cannot see because they may be hehind other surfaces. There are two main approaches to solving this problem:
+- We can solve it in **world space**, i.e. we can try to work it out geometrically in 3D before drawing the result, this was the earlier approaches that was used and it is extremely hard
+- We can do it in **display space**, so, during scan-conversion, whenever we generate a pixel **P**, we determine whether some **other** 3D object, nearer to the eye, **also** maps to **P**. This is now the standard approach.
+
+#### The z-buffer (depth-buffer)
+The **z-buffer** keeps a record of the z-value of each pixel.
+
+```
+Initialise each pixel to the desired background colour
+Initialise each z-buffer entry to MAXDEPTH
+for each pixel P generated during scan-conversion of an object do
+  if z-coordinate of P < ZBUFFER[P] then
+    compute colour of P
+    store colour in P
+    store z-coordinate of P in ZBUFFER[P]
+  else
+    do nothing (since something else has already been mapped to P and is closer)
+```
+
+:heavy_exclamation_mark: A lack of precision in the z-buffer leads to incorrect rendering of pixels with similar or identical z-values - this is known as **z-fighting** or **stitching**
