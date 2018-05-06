@@ -45,3 +45,8 @@ P_{screen} =
 \end{bmatrix}
 * P_{world}
 {% endmath %}
+
+#### Clipping
+Normally, we want to **clip** against the viewport to remove those parts of the primitives whose coordinates are outside the window and sometimes it's useful to use multiple windows and viewports, to help arrange items on the screen.
+
+:warning: There is no actual camera - we imagined we have a camera and simulated it by **transforming the model**
