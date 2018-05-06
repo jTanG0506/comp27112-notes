@@ -30,3 +30,18 @@ One way to represent a scene using polygons is to have a huge list of individual
 - **Quadrilateral meshes** are a collection of linked quadrilaterals, which is commonly used in terrain modelling and for approximating curved surfaces. {% math %}N \times M{% endmath %} quadrilaterals can be defined using {% math %}(N + 1) \times (M + 1){% endmath %} vertices, compared with {% math %}4MN{% endmath %} separate vertices
 
 :heavy_exclamation_mark: Quadrilaterals must be **tessellated** into triangles during rendering
+
+#### Scan conversion
+**Scan conversion** is the process of converting polygon edges in world coordinates into lines to display on a screen.
+
+##### Scan-converting a line
+To scan-convert a line, we sample the true geometry of the line, and **approximate** it using the nearest pixels available. Bresenham (1965) developed a fast algorithm using only integer arithmetic, which is still in use today.
+
+##### Scan-converting a polygon
+When scan-converting a polygon, we know the polygon has been transformed by the viewing pipeline, so we know its {% math %}(x, y, z){% endmath %} vertex coordinates in screen space, where the {% math %}(x, y){% endmath %} coordinates correspond to a pixel position and the {% math %}z{% endmath %} coordinate is a measure of the vertex's distance from the eye.
+
+##### Naïve approach
+One approach would be to scan-convert each of the edges in turn and process each row of pixels and fill in the remaining interior pixels.
+
+##### Sweep-line algorithm
+This algorithm steps down a pair of edges, starting in this example at {% math %}(x_1, y_1){% endmath %}, then goes down scanline by scanline, finding the start and end of the part of the scanline inside the triangle. This algorithm is efficient because we only need to coompute the gradients of the edges {% math %}px{% endmath %} and {% math %}qx{% endmath %} once, at the beginning. However, it is a floating point algorithm, so we do need keep rounding to the pixel grid.
