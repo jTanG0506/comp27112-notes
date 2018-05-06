@@ -80,3 +80,10 @@ We use {% math %}E, C, V{% endmath %} to derive a coordinate system for the *cam
 - **F** is {% math %}C - E{% endmath %} - a normalised vector since it is only used to specify a direction
 - **S** is \hat{(F \times U)}
 - **S** is \hat{(F \times S)} (without any assumptions that V is orthogonal to F)
+
+##### The viewing transformation
+**The viewing transformation** {% math %}T_{c}^{-1}{% endmath %} moves and rotations the {% math %}\hat{S} \, \hat{U} \, \hat{F}{% endmath %} camera system to align with the origin of the world coordinates system, and thte idea is that if we apply {% math %}T_{c}^{-1}{% endmath %} to **objects**, we will get the **same view** as if we had a real camera at {% math %}E{% endmath %}.
+
+To derive {% math %}T_{c}^{-1}{% endmath %}, the transformation that moves the camera coordinate system to the world origin, we do:
+- Step 1: translate the origin of the camera system onto the origin of the world system
+- Step 2: rotate the camera axis to be coincident with the world axes, with {% math %}\hat{F}{% endmath %} aligned with {% math %}-Z{% endmath %}
