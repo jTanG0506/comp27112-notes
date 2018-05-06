@@ -68,3 +68,15 @@ We can create the same view from a camera at a certain location and orientation 
 
 - For example, moving the model by {% math %}(x, y, z){% endmath %} is equivalent to moving the model by {% math %}(-x, -y, -z){% endmath %}
 - When we *change the camera location and orientation*, we compute a viewing transformation which we then apply to the object
+
+##### Specifying the camera
+The *camera* is specified by:
+- **Eye point** ({% math %}E{% endmath %}) - where the camera is located in 3D space
+- **Centre of interest** ({% math %}C{% endmath %}) - a 3D point at which the *camera* is looking at
+- **Up vector** ({% math %}V{% endmath %}) - direction of the camera, using a view up vector
+
+##### Defining the camera coordinate system
+We use {% math %}E, C, V{% endmath %} to derive a coordinate system for the *camera* and we call the axis of the camera's coordinate system {% math %}\hat{S} \, \hat{U} \, \hat{F}{% endmath %} where
+- **F** is {% math %}C - E{% endmath %} - a normalised vector since it is only used to specify a direction
+- **S** is \hat{(F \times U)}
+- **S** is \hat{(F \times S)} (without any assumptions that V is orthogonal to F)
