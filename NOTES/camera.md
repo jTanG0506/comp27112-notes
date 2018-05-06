@@ -62,3 +62,9 @@ Normally, we want to **clip** against the viewport to remove those parts of the 
 | 2 | Point the camera at the scene | Set Viewing Transformation |
 | 3 | Choose the camera lens or adjust the zoom | Set Projection Transformation |
 | 4 | Determine the size and shape of the final photograph | Set Viewport Transformation |
+
+##### Duality of modelling and viewing
+We can create the same view from a camera at a certain location and orientation by transforming the object - so it's impossible to tell if the camera was moved, or if the model was moved.
+
+- For example, moving the model by {% math %}(x, y, z){% endmath %} is equivalent to moving the model by {% math %}(-x, -y, -z){% endmath %}
+- When we *change the camera location and orientation*, we compute a viewing transformation which we then apply to the object
