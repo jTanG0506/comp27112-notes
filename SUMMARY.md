@@ -6,5 +6,6 @@
   * [Transformations](NOTES/transformations.md)
   * [Polygons and Pixels](NOTES/polygons-and-pixels.md)
   * [Camera](NOTES/camera.md)
+  * [Projections](NOTES/projections.md)
   
 * [Image Processing]()

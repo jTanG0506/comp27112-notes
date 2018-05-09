@@ -113,3 +113,11 @@ Transforming our model by {% math %}PN{% endmath %}, and then taking an orthogra
 
 ###### Clipping
 **Clipping** takes place in the cube produced by projection normalisation, as it is easier to do than clipping against a frustum.
+
+##### Summary of 3D Viewing
+- Step 1: The modelling transformation arranges objects in our 3D world
+- Step 2: The viewing transformation transforms the world to give the same view as if it were being photographed by a camera
+- Step 3: The projection transformation performs a parallel / perspective projection within clip planes
+- Step 4: Those parts of the 3D world outside the clip planes are discarded
+- Step 5: If it is a perspective view, the perspective division *flattens** the image
+- Step 6: The viewport transformation maps the final image to a position in part of the display screen window
