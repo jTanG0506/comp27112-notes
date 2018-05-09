@@ -105,3 +105,11 @@ For a parallel orthographic projection, the view volume will be a **cuboid** whi
 
 ##### Perspective Projection
 For perspective projection, the view volume is a **frustum** (a truncated pyramid), which is defined by a near plane (the projection plane) and a far plane. The near and far planes are orthogonal to the cameras {% math %}\hat{F}{% endmath %} axis.
+
+##### Preserving Depth
+In order do do hidden-surface removal, we need a perspective transformation which allows to retain the {% math %}z{% endmath %} depth information. Suppose that we have a particular perspective transformation expressed by frustum {% math %}F{% endmath %} and a matrix {% math %}M{% endmath %}. It can be shown that we can derive a new transformation matrix {% math %}PN{% endmath %}, based on {% math %}M{% endmath %}, that **distorts F into a cube**.
+
+Transforming our model by {% math %}PN{% endmath %}, and then taking an orthographic projection produces **exactly the same result** as performing our original perspective transformation {% math %}M{% endmath %}, with one difference: the {% math %}z{% endmath %} depth values are preserved. This processing is known as **projection normalisation** and OpenGL creates {% math %}PN{% endmath %} for us automatically.
+
+###### Clipping
+**Clipping** takes place in the cube produced by projection normalisation, as it is easier to do than clipping against a frustum.
