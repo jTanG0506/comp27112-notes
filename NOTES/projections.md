@@ -19,3 +19,6 @@ In axonometric parallel projection, projectors are **perpendicular** to the proj
 - It is **isometric** if the projection plane is symmetrical to 3 of the {% math %}(x, y, z){% endmath %} axes
 - It is **dimetric** if the projection plane is symmetrical to 2 of the {% math %}(x, y, z){% endmath %} axes
 - It is **trimetric** if the projection plane is place arbitrarily (symmetrical to 1 or 0 of the {% math %}(x, y, z){% endmath %} axes)
+
+#### Oblique projection
+In **oblique** parallel projection, projectors can make **any angle** with the projection plane and the projection plane can have **any orientation** relative to the object being viewed. We see all three axes but there will be distortions of lengths or angles.
