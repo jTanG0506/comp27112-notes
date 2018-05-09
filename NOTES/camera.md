@@ -78,8 +78,8 @@ The *camera* is specified by:
 ##### Defining the camera coordinate system
 We use {% math %}E, C, V{% endmath %} to derive a coordinate system for the *camera* and we call the axis of the camera's coordinate system {% math %}\hat{S} \, \hat{U} \, \hat{F}{% endmath %} where
 - **F** is {% math %}C - E{% endmath %} - a normalised vector since it is only used to specify a direction
-- **S** is \hat{(F \times U)}
-- **S** is \hat{(F \times S)} (without any assumptions that V is orthogonal to F)
+- **S** is {% math %}\hat{(F \times U)}{% endmath %}
+- **S** is {% math %}\hat{(F \times S)}{% endmath %} (without any assumptions that V is orthogonal to F)
 
 ##### The viewing transformation
 **The viewing transformation** {% math %}T_{c}^{-1}{% endmath %} moves and rotations the {% math %}\hat{S} \, \hat{U} \, \hat{F}{% endmath %} camera system to align with the origin of the world coordinates system, and thte idea is that if we apply {% math %}T_{c}^{-1}{% endmath %} to **objects**, we will get the **same view** as if we had a real camera at {% math %}E{% endmath %}.
