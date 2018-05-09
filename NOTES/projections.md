@@ -91,3 +91,17 @@ We can also derive a matrix which expresses the most general case, **3-point pro
     1
 \end{bmatrix}
 {% endmath %}
+
+##### What can the camera see?
+- Only objects in front of it
+- Only objects within its field of view, which depends on its lens, and is about {% math %}90 \degree{% endmath %}for the human eye.
+- Only a finite distance, as very distant objects will project too small to be seen
+
+#### View Volume
+The volume of space which ends appears in the image is known as the **view volume**. As you would expect, the shape of the view volume will depend on the type of projection.
+
+##### Parallel Projection
+For a parallel orthographic projection, the view volume will be a **cuboid** which will be defined by six planes, a near plane (the projection plane), a far plane and top, bottom, left and right planes. The near and far planes are orthogonal to the cameras {% math %}\hat{F}{% endmath %} axis.
+
+##### Perspective Projection
+For perspective projection, the view volume is a **frustum** (a truncated pyramid), which is defined by a near plane (the projection plane) and a far plane. The near and far planes are orthogonal to the cameras {% math %}\hat{F}{% endmath %} axis.
