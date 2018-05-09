@@ -22,3 +22,47 @@ In axonometric parallel projection, projectors are **perpendicular** to the proj
 
 #### Oblique projection
 In **oblique** parallel projection, projectors can make **any angle** with the projection plane and the projection plane can have **any orientation** relative to the object being viewed. We see all three axes but there will be distortions of lengths or angles.
+
+## Perspective projection
+The **projection** is a set of points at which the projectors intersect the projection plane. As the centre of projection is **a point**, the projectors will **converge**. Objects further away from the centre of perspective become smaller, edges that were parallel may converge and angles between edges may be **distorted**.
+
+The number of {% math %}(x, y, z){% endmath %} axes parallel to the projection plane determines the number of **vanishing points** in the projected image.
+- **1-point perspective** with 2 parallel axes
+- **2-point perspective** with 1 parallel axis
+- **3-point perspective** with 0 parallel axis
+
+#### Computing perspective
+Say we have a projection plane located at {% math %}z = d{% endmath %}, and parallel to the {% math %}XY{% endmath %} plane, we want to find the point that {% math %}(x, y, z){% endmath %} will project to, on the projection plane, {% math %}(x_p, y_p, z_p){% endmath %}. By definition, {% math %}z_p = d{% endmath %}. By looking at the top view, looking down the y-axis, by similar triangles, we have {% math %}\frac{x_p}{d} = \frac{x}{z}{% endmath %} and so {% math %} x_p = \frac{dx}{z}{% endmath %} and similarly, on a side view, with our eye at the origin and looking along the x-axis, we have {% math %}y_p = \frac{dy}{z}{% endmath %}.
+
+We can express this transformation as a {% math %}4 \times 4{% endmath %} matrix.
+{% math %}
+\begin{bmatrix}
+    x \\
+    y \\
+    z \\
+    z/d
+\end{bmatrix}
+=
+\begin{bmatrix}
+    x' \\
+    y' \\
+    z' \\
+    w'
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 1/d & 0
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+    x \\
+    y \\
+    z \\
+    1
+\end{bmatrix}
+{% endmath %}
+
+Recall that we must always end up with a 3D point which has a {% math %}w = 1{% endmath %}, so we must divide all elements by {% math %}w{% endmath %} and this is known as **perspective division**.
