@@ -66,3 +66,28 @@ We can express this transformation as a {% math %}4 \times 4{% endmath %} matrix
 {% endmath %}
 
 Recall that we must always end up with a 3D point which has a {% math %}w = 1{% endmath %}, so we must divide all elements by {% math %}w{% endmath %} and this is known as **perspective division**.
+
+#### 3-point projection
+We can also derive a matrix which expresses the most general case, **3-point projection**, where the projection plane is not parallel to any of the {% math %}XY, XZ{% endmath %} or {% math %}YZ{% endmath %} planes. The projection plane intersects the {% math %}X, Y{% endmath %} and {% math %}Z{% endmath %} axes at {% math %}(d_x, d_y, d_z){% endmath %}.
+{% math %}
+\begin{bmatrix}
+    x' \\
+    y' \\
+    z' \\
+    w'
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    1/d_x & 1/d_y & 1/d_z & 0
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+    x \\
+    y \\
+    z \\
+    1
+\end{bmatrix}
+{% endmath %}
