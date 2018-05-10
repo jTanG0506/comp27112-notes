@@ -111,7 +111,7 @@ In order do do hidden-surface removal, we need a perspective transformation whic
 
 Transforming our model by {% math %}PN{% endmath %}, and then taking an orthographic projection produces **exactly the same result** as performing our original perspective transformation {% math %}M{% endmath %}, with one difference: the {% math %}z{% endmath %} depth values are preserved. This processing is known as **projection normalisation** and OpenGL creates {% math %}PN{% endmath %} for us automatically.
 
-###### Clipping
+##### Clipping
 **Clipping** takes place in the cube produced by projection normalisation, as it is easier to do than clipping against a frustum.
 
 ##### Summary of 3D Viewing
@@ -119,5 +119,5 @@ Transforming our model by {% math %}PN{% endmath %}, and then taking an orthogra
 - Step 2: The viewing transformation transforms the world to give the same view as if it were being photographed by a camera
 - Step 3: The projection transformation performs a parallel / perspective projection within clip planes
 - Step 4: Those parts of the 3D world outside the clip planes are discarded
-- Step 5: If it is a perspective view, the perspective division *flattens** the image
+- Step 5: If it is a perspective view, the perspective division *flattens* the image
 - Step 6: The viewport transformation maps the final image to a position in part of the display screen window
