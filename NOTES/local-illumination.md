@@ -69,3 +69,12 @@ Our local illumination model which takes into account ambient, distance diffuse 
 \large
 I = k_aI_a + \frac{I_p}{k_c + k_1 d + k_q d^2}\Big(k_d(\hat{N} \cdot \hat{L}) + k_s(\hat{R} \cdot \hat{V})^n\Big)
 {% endmath %}
+
+### Incorporating colour
+It is easy to incorporate colour, as we just express light colour as a triple of RGB intensities: {% math %}I_{pR}, I_{pG}, I_{pB}{% endmath %}. Likewise, we express surface colour using {% math %}k_{aR}, k_{aG}, k_{aB}{% endmath %} for ambient and {% math %}k_{dR}, k_{dG}, k_{dB}{% endmath %} for diffuse.
+
+For example, our local illumination model with red taken into account is as follows.
+{% math %}
+\large
+I_R = k_{aR}I_{aR} + \frac{I_{pR}}{k_c + k_1 d + k_q d^2}\Big(k_{dR}(\hat{N} \cdot \hat{L}) + k_s(\hat{R} \cdot \hat{V})^n\Big)
+{% endmath %}
