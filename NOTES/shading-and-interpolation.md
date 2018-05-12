@@ -23,3 +23,6 @@ Phong's interpolation is similar to Gouraud's algorithm, however, instead of int
 Let {% math %}N_a, N_b{% endmath %} and {% math %}N_c{% endmath %} denote the normal vectors at vertices {% math %}A, B{% endmath %} and {% math %}C{% endmath %} respectively. For each scanline, we compute the average normal {% math %}N_{left}{% endmath %} from {% math %}N_a{% endmath %} and {% math %}N_c{% endmath %} and compute the average normal {% math %}N_{right}{% endmath %} from {% math %}N_b{% endmath %} and {% math %}N_c{% endmath %}, then we average {% math %}N_{left}{% endmath %} and {% math %}N_{right}{% endmath %} along the scanline and compute the colour of the pixel using the illumination model.
 
 The result of Phong's algorithm is that specular highlights are rendered correctly, but rendering is more expensive.
+
+#### Rendering expense
+Our local illumination model takes about 60 floating-point operations to compute a colour for a pixel. For a Gouraud-shaded triangle, that's 180 floating-point operations, about 2 per pixel. For a Phong-shaded triangle, that's 60 floating-point operations per pixel.

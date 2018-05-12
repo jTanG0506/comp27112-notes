@@ -9,5 +9,6 @@
   * [Camera](NOTES/camera.md)
   * [Projections](NOTES/projections.md)
   * [Local Illumination](NOTES/local-illumination.md)
+  * [Shading and Interpolation](NOTES/shading-and-interpolation.md)
   
 * [Image Processing]()
