@@ -78,3 +78,11 @@ For example, our local illumination model with red taken into account is as foll
 \large
 I_R = k_{aR}I_{aR} + \frac{I_{pR}}{k_c + k_1 d + k_q d^2}\Big(k_{dR}(\hat{N} \cdot \hat{L}) + k_s(\hat{R} \cdot \hat{V})^n\Big)
 {% endmath %}
+
+### Multiple lights
+If we have multiple lights, we simply compute illumination separately for each and sum. For {% math %}M{% endmath %} lights, we have:
+
+{% math %}
+\large
+I = \text{ambient} + \sum^M_{i=1}(\text{diffuse}_i + \text{specular}_i)
+{% endmath %}

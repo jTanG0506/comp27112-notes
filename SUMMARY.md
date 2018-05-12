@@ -8,5 +8,6 @@
   * [Polygons and Pixels](NOTES/polygons-and-pixels.md)
   * [Camera](NOTES/camera.md)
   * [Projections](NOTES/projections.md)
+  * [Local Illumination](NOTES/local-illumination.md)
   
 * [Image Processing]()
