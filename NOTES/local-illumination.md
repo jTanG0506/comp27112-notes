@@ -39,3 +39,33 @@ Our local illumination model which takes into account both ambient and distance 
 \large
 I = k_aI_a + \Big(\frac{I_p}{k_c + k_1 d + k_q d^2} \times k_d \times (\hat{N} \cdot \hat{L})\Big)
 {% endmath %}
+
+### Modelling specular reflection
+{% math %}\hat{R}{% endmath %} is a vector giving the direction of maximum specular reflection, which makes an angle of {% math %}\theta{% endmath %} with {% math %}\hat{N}{% endmath %}, as does {% math %}\hat{L}{% endmath %}. {% math %}\hat{V}{% endmath %} is a vector pointing to the observer's position.
+
+The specular reflection varies with:
+- the angle {% math %}\phi{% endmath %} between {% math %}\hat{R}{% endmath %} and {% math %}\hat{V}{% endmath %}
+
+- incident angle {% math %}\theta{% endmath %} and light wavelength {% math %}\lambda{% endmath %}
+
+So we need a function {% math %}I_{specular} = S(\phi, \theta, \lambda){% endmath %}
+
+#### The effect of {% math %}\phi{% endmath %}
+As {% math %}\hat{V}{% endmath %} diverges from {% math %}\hat{R}{% endmath %} by angle {% math %}\theta{% endmath %}, the viewer sees less specular reflection. We need a function {% math %}F(\phi){% endmath %} which models the variation of observed specular, and Bui-Tuong Phong proposed using the function {% math %}F(\phi) = cos^n \phi{% endmath %}. So now we have {% math %}I_{specular} = I_p\cos^n\phi = I_p(\hat{R} \cdot \hat{V})^n{% endmath %}.
+
+#### The effect of {% math %}\theta \, \text{and} \, \lambda{% endmath %}
+Augustin-Jean Fresnel, the founder of the wave theory of light, developed the theory of diffraction of light. The complex variation is expressed by the Fresnel equation.
+
+{% math %}
+\large
+F = \frac{1}{2}\Big[\frac{\sin^2(\phi - \theta)}{\sin^2(\phi + \theta)} + \frac{\tan^2(\phi - \theta)}{\tan^2(\phi + \theta)}\Big]
+{% endmath %}
+
+where F is the fraction of light reflected. We have that {% math %}\sin \theta = \sin \phi / \mu{% endmath %} where {% math %}\mu{% endmath %} is the refractive index of the material, independent of {% math %}\lambda{% endmath %}. However, in practice, we often replace {% math %}F{% endmath %} with a single constant {% math %}k_s{% endmath %}, the **specular reflection coefficient** of the surface, with {% math %}0 \leq k_s \leq 1{% endmath %}. So now we have {% math %}I_{specular} = I_pk_s(R \cdot V)^n{% endmath %}. We have sacrificed accuracy for efficiency, which results in a plastic look.
+
+Our local illumination model which takes into account ambient, distance diffuse and distance specular is as follows.
+
+{% math %}
+\large
+I = k_aI_a + \frac{I_p}{k_c + k_1 d + k_q d^2}\Big(k_d(\hat{N} \cdot \hat{L}) + k_s(\hat{R} \cdot \hat{V})^n\Big)
+{% endmath %}
