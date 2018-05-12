@@ -1,0 +1,3 @@
+# Local Illumination
+
+Models of light-matter can interact in two ways, **locally** and **globally**. In a **local illumination model**, we treat each object in a scene separately from any other object, so reflections between objects are simply ignored. In a **global illumination model**, we treat all objects together and model the interactions between objects, well at least try to, as it is an extremely complex process. As digital images have finite precision, we can only **approximate** it to various degrees of fidelity.
