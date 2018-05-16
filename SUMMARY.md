@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+
 * [Interactive Computer Graphics]()
   * [Course Introduction](NOTES/course-introduction.md)
   * [Image Synthesis](NOTES/image-synthesis.md)
@@ -16,3 +17,4 @@
   * [Introduction to Image Processing](NOTES/introduction-to-image-processing.md)
   * [Point Processing](NOTES/point-processing.md)
   * [Region Processing](NOTES/region-processing.md)
+  * [Region Detection and Description](NOTES/region-detection-and-description.md)
