@@ -13,3 +13,4 @@
   * [Surface Detail](NOTES/surface-detail.md)
   
 * [Image Processing]()
+  * [Introduction to Image Processing](NOTES/introduction-to-image-processing.md)
